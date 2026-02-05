@@ -1,0 +1,67 @@
+---
+description: Linee guida landing community sviluppatori (Next.js + shadcn/ui)
+alwaysApply: true
+---
+
+# Contesto progetto
+
+- Progetto: landing page per **community di sviluppatori** che promuove:
+  - hackathon
+  - progetti open source
+  - community e networking
+  - opportunità di collaborazione/lavoro
+- Obiettivo principale: **portare traffico qualificato verso CTA esterne** (es. “Iscriviti”, “Join the community”) che rimandano a un sito esterno di registrazione.
+- Stack: **Next.js** (app router), **React**, **Tailwind**, **shadcn/ui** come base per il design system.
+
+# Riferimenti di stile e posizionamento
+
+- Ispirazioni principali:
+  - `https://www.mercor.com/` → tono professionale, chiaro, orientato a developer e career/gigs.
+  - `https://www.home.stema.io/` → pulito, moderno, con forte focalizzazione sulla value proposition.
+  - `https://www.devpunks.com/` → tono bold/irriverente, con forte identità “per dev”.
+- La landing deve comunicare:
+  - **chiarezza sul valore per lo sviluppatore**
+  - **energia e community vibe** (eventi, hackathon, open source)
+  - **credibilità** (struttura ordinata, UI curata, copy non fuffa).
+
+# Linee guida UX/UI generali
+
+- **Target**: sviluppatori (dev frontend/backend/fullstack). Evitare linguaggio troppo marketingese; preferire copy diretto e concreto.
+- **Obiettivo UX**: ogni sezione dovrebbe portare verso una CTA (hero, metà pagina, footer).
+- **Uso di shadcn/ui**:
+  - Riutilizzare i componenti shadcn (button, card, badge, tabs, accordion, ecc.) e **non reinventare il sistema di spacing/typography** se non necessario.
+  - Mantenere il look & feel coerente: bordi, radius, shadows, tipografie.
+- **Gerarchia visiva**:
+  - Hero molto chiaro con headline forte + sottotitolo + 1–2 CTA principali (es. “Join the next hackathon” + “Scopri i progetti open source”).
+  - Sezione “Come funziona” sintetica (3–4 step max).
+  - Sezione “Cosa ottieni” con benefici concreti per il dev (skill, portfolio, networking, potenziali opportunità pagate).
+  - Sezione progetti/eventi/hackathon passati (anche fittizi all’inizio) per dare concretezza.
+  - Social proof (logo aziende, quote dev, numeri community) quando disponibili.
+
+# Linee guida copy (in italiano, tono dev-friendly)
+
+- Copy **in italiano** per default, tono:
+  - diretto, tecnico‑friendly, senza buzzword vuote.
+  - esempi: “Costruisci progetti reali con altri dev”, “Partecipa ad hackathon mirati”, “Aggiungi vere esperienze al tuo GitHub”.
+- CTA chiare e azionabili:
+  - Esempi: “Unisciti alla prossima hackathon”, “Entra nella community”, “Candidati ora”.
+- Evitare frasi generiche tipo “Soluzione innovativa per il futuro del lavoro” senza specificare cosa succede davvero.
+
+# Font & design system (alto livello)
+
+- Font suggeriti (web-safe / Google Fonts, da validare nel progetto):
+  - Per titoli (display): qualcosa di **forte ma leggibile** (es. `Space Grotesk`, `Clash Grotesk`, o simile sans moderna).
+  - Per testo body: sans pulita e tecnica (es. `Inter`).
+- Palette (macro linee guida, non palette definitiva):
+  - **Background**: dark o dark‑slate (stile DevPunks/Mercor) con buon contrasto.
+  - **Accent primario**: colore energico (viola/verde/azzurro neon) per CTA e highlight.
+  - **Neutrals**: grigi per testo, card, bordi; attenzione all’accessibilità.
+- Le decisioni puntuali di palette e token (colori, spacing, radius) dovranno essere mappate sui **token Tailwind** e shadcn (es. `primary`, `muted`, `accent`).
+
+# Convenzioni Next.js / struttura
+
+- Utilizzare l’**App Router** (cartella `app/`).
+- Landing strutturata in sezioni/componenti riutilizzabili (es. `Hero`, `HowItWorks`, `CommunityStats`, `Projects`, `FAQ`, `FooterCTA`).
+- Le CTA che portano al sito esterno devono essere:
+  - semanticamente `a` con `href` esterno
+  - visivamente coerenti con i `Button` di shadcn/ui.
