@@ -10,7 +10,7 @@ export default function FooterSection({ className }) {
   return (
     <section
       className={cn(
-        "flex flex-col items-center gap-14 border-t border-border bg-background py-16 sm:py-20",
+        "flex flex-col items-center gap-14 border-border bg-background py-16 sm:py-20",
         className,
       )}
     >
@@ -51,7 +51,13 @@ export default function FooterSection({ className }) {
         </ul>
       </nav>
       <p
-        className="mt-10 text-2xl font-medium tracking-tight text-muted-foreground md:mt-14 md:text-3xl lg:mt-20 lg:text-4xl"
+        className="mt-10 text-2xl font-medium tracking-tight text-muted-foreground md:mt-14 md:text-3xl lg:mt-20 lg:text-9xl"
+        style={{
+          maskImage:
+            "linear-gradient(to bottom, black 0%, black 55%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, black 0%, black 55%, transparent 100%)",
+        }}
         aria-label={siteTitle}
       >
         {siteTitle}
