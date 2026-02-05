@@ -63,7 +63,9 @@ const resources = [
 export default function RisorsePage() {
   return (
     <PageShell>
-      <section className="py-16 sm:py-20">
+      <section className="relative py-16 sm:py-20">
+        {/* Glow decorativo per la pagina risorse */}
+        <div className="pointer-events-none absolute inset-x-10 -top-24 h-60 rounded-full bg-[radial-gradient(circle_at_top,_rgba(79,70,229,0.16),_transparent_60%)] blur-3xl opacity-80" />
         <header className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--muted-foreground)]">
             Risorse
@@ -77,7 +79,7 @@ export default function RisorsePage() {
           </p>
         </header>
 
-        <section className="mt-10 space-y-10">
+        <section className="mt-10 space-y-10 relative z-10">
           {resources.map((group) => (
             <div key={group.category} className="space-y-4">
               <h2 className="text-sm font-semibold text-[color:var(--foreground)]">

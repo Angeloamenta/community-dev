@@ -2,11 +2,14 @@ export default function HeroSection() {
   return (
     <section className="relative py-16 sm:py-20">
       {/* Glow / gradient di background */}
-      <div className="pointer-events-none absolute inset-x-0 top-[-180px] -z-10 flex justify-center">
-        <div className="h-72 w-[520px] rounded-full bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.35),_transparent_60%)] blur-3xl opacity-80" />
+      <div className="pointer-events-none absolute inset-x-0 top-[-180px] z-0 flex justify-center">
+        <div className="h-80 w-[640px] rounded-full bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.5),_transparent_65%)] blur-3xl opacity-100" />
       </div>
+      {/* Sfere blur principali */}
+      <div className="pointer-events-none absolute -left-4 top-32 z-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(79,70,229,0.5),_transparent_55%)] blur-3xl opacity-100" />
+      <div className="pointer-events-none absolute right-[-40px] bottom-[-10px] z-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(79,70,229,0.45),_transparent_55%)] blur-3xl opacity-100" />
 
-      <div className="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">
+      <div className="relative z-10 grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">
         {/* Colonna testo */}
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
           <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--background)]/70 px-3 py-1 text-xs text-[color:var(--muted-foreground)] backdrop-blur">

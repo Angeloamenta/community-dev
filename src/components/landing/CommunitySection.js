@@ -19,7 +19,9 @@ export default function CommunitySection() {
 
   return (
     <section className="py-16 sm:py-20" id="community">
-      <div className="space-y-8">
+      <div className="relative space-y-8">
+        {/* Glow decorativo in alto a destra */}
+        <div className="pointer-events-none absolute -right-24 -top-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(79,70,229,0.16),_transparent_55%)] blur-3xl opacity-80" />
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-3">
             <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--muted-foreground)]">
@@ -35,7 +37,7 @@ export default function CommunitySection() {
             puoi decidere come incastrare la community nella tua settimana.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 relative z-10">
           {items.map((item, index) => (
             <article
               key={item.title}

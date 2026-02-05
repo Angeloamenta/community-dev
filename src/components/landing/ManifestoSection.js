@@ -34,8 +34,10 @@ export default function ManifestoSection() {
           </p>
         </div>
         <div className="relative overflow-hidden rounded-3xl border border-[color:var(--border)] bg-[color:var(--background)]/80 p-6 sm:p-8">
+          {/* Glow decorativo centrale */}
+          <div className="pointer-events-none absolute inset-x-10 -top-24 h-52 rounded-full bg-[radial-gradient(circle_at_top,_rgba(79,70,229,0.18),_transparent_60%)] blur-3xl opacity-80" />
           <div className="pointer-events-none absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[color:var(--primary)] via-transparent to-[color:var(--primary)] opacity-70" />
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 relative z-10">
             {points.map((point) => (
               <article
                 key={point.label}
