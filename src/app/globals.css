@@ -84,6 +84,9 @@
   --sidebar-accent-foreground: #020617;
   --sidebar-border: #e5e7eb;
   --sidebar-ring: #4f46e5;
+
+  /* Pattern puntinato leggero */
+  --dot-color: rgba(15, 23, 42, 0.11);
 }
 
 @theme inline {
@@ -221,6 +224,8 @@ body {
   --sidebar-accent-foreground: #e5e7eb;
   --sidebar-border: #1f2937;
   --sidebar-ring: #6366f1;
+
+  --dot-color: rgba(148, 163, 184, 0.09);
 }
 
 /*

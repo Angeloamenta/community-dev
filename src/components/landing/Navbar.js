@@ -39,15 +39,9 @@ export default function Navbar() {
           <ThemeToggle />
           <a
             href="#"
-            className="hidden rounded-full border border-[color:var(--border)] px-3 py-1.5 text-[11px] text-[color:var(--muted-foreground)] hover:bg-[color:var(--secondary)]/60 sm:inline-flex"
-          >
-            Entra nella community
-          </a>
-          <a
-            href="#"
             className="inline-flex items-center rounded-full bg-[color:var(--primary)] px-3.5 py-1.5 text-[11px] font-semibold text-[color:var(--primary-foreground)] shadow-sm hover:brightness-110"
           >
-            Candidati
+            Entra nella community
           </a>
         </div>
       </div>
