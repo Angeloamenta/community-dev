@@ -4,5 +4,6 @@ export { default as HeroSection } from "./HeroSection";
 export { default as AboutSection } from "./AboutSection";
 export { default as CommunitySection } from "./CommunitySection";
 export { default as ManifestoSection } from "./ManifestoSection";
+export { default as Logos } from "./Logos";
 export { default as FooterSection } from "./FooterSection";
 

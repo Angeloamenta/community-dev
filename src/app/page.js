@@ -4,6 +4,7 @@ import {
   AboutSection,
   CommunitySection,
   ManifestoSection,
+  Logos,
   FooterSection,
 } from "../components/landing";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <AboutSection />
       <CommunitySection />
       <ManifestoSection />
+      <Logos />
       <FooterSection />
     </PageShell>
   );

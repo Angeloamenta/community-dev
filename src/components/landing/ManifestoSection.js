@@ -1,62 +1,71 @@
-import SectionReveal from "../animations/SectionReveal";
+"use client";
 
-export default function ManifestoSection() {
-  const points = [
-    {
-      label: "1. Progetti > teoria",
-      description:
-        "Preferiamo una PR ben fatta a dieci lezioni guardate. Ogni iniziativa ha un output concreto: codice pubblico, demo, case study.",
-    },
-    {
-      label: "2. Qualità > quantità",
-      description:
-        "Non puntiamo a migliaia di iscritti passivi. Vogliamo un gruppo gestibile di dev che partecipano davvero.",
-    },
-    {
-      label: "3. Feedback onesti",
-      description:
-        "Code review sincere, niente ego. L’obiettivo è far crescere le persone e i progetti, non fare bella figura.",
-    },
-    {
-      label: "4. Open by default",
-      description:
-        "Quando possibile, preferiamo open source, documentazione chiara e discussioni accessibili anche a chi arriva dopo.",
-    },
-  ];
+import { Fragment } from "react";
+import { cn } from "@/lib/utils";
+import SectionReveal from "../animations/SectionReveal";
+import homeContent from "@/content/home.json";
+
+const manifesto = homeContent.manifesto;
+const hoverTerms = manifesto.hoverTerms;
+
+function HoverTerm({ label, image, className }) {
+  return (
+    <span
+      className={cn(
+        "group relative inline-block cursor-default",
+        className,
+      )}
+      title={label}
+    >
+      <span className="px-1 text-foreground transition-colors group-hover:text-primary">
+        {label}
+      </span>
+      <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 rounded-lg border border-border bg-card p-2 opacity-0 shadow-(--shadow-soft) transition-opacity duration-200 group-hover:opacity-100">
+        <img
+          src={image}
+          alt={label}
+          width={80}
+          height={80}
+          className="h-16 w-16 object-contain md:h-20 md:w-20"
+        />
+      </span>
+    </span>
+  );
+}
+
+export default function ManifestoSection({ className }) {
+  const parts = manifesto.body.split(/(\{\{\d+\}\})/);
 
   return (
-    <section className="py-16 sm:py-20" id="manifesto">
+    <section
+      className={cn("overflow-hidden py-32", className)}
+      id="manifesto"
+    >
       <SectionReveal variant="up">
-        <div className="space-y-8">
-          <div className="space-y-3">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--muted-foreground)]">
-              Manifesto
-            </h2>
-            <p className="max-w-2xl text-2xl font-semibold tracking-tight sm:text-3xl">
-              Le regole del gioco: cosa puoi aspettarti dalla community e cosa ci aspettiamo da te.
-            </p>
-          </div>
-          <div className="relative overflow-hidden rounded-3xl border border-[color:var(--border)] bg-[color:var(--background)]/80 p-6 sm:p-8">
-            {/* Glow decorativo centrale */}
-            <div className="pointer-events-none absolute inset-x-10 -top-24 h-52 rounded-full bg-[radial-gradient(circle_at_top,_rgba(79,70,229,0.18),_transparent_60%)] blur-3xl opacity-80" />
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[color:var(--primary)] via-transparent to-[color:var(--primary)] opacity-70" />
-            <div className="grid gap-6 md:grid-cols-2 relative z-10">
-              {points.map((point) => (
-                <article
-                  key={point.label}
-                  className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)]/90 p-5"
-                >
-                  <h3 className="text-sm font-semibold sm:text-base">{point.label}</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-[color:var(--muted-foreground)] sm:text-sm">
-                    {point.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
+        <div className="container w-full">
+          <p className="mt-10 text-center text-3xl font-semibold tracking-tight text-muted-foreground/40 md:text-4xl">
+            {parts.map((part, idx) => {
+              const m = part.match(/\{\{(\d+)\}\}/);
+              if (m) {
+                const term = hoverTerms[Number(m[1])];
+                return (
+                  <HoverTerm
+                    key={idx}
+                    label={term.label}
+                    image={term.image}
+                  />
+                );
+              }
+              return part.split("\n").map((line, j) => (
+                <Fragment key={`${idx}-${j}`}>
+                  {j > 0 && <br />}
+                  {line}
+                </Fragment>
+              ));
+            })}
+          </p>
         </div>
       </SectionReveal>
     </section>
   );
 }
-
