@@ -1,24 +1,20 @@
 import {
   PageShell,
   HeroSection,
-  HowItWorksSection,
-  ValuePropsSection,
-  ProjectsSection,
-  SocialProofSection,
-  FaqSection,
-  FinalCtaSection,
+  AboutSection,
+  CommunitySection,
+  ManifestoSection,
+  FooterSection,
 } from "../components/landing";
 
 export default function Home() {
   return (
     <PageShell>
       <HeroSection />
-      <HowItWorksSection />
-      <ValuePropsSection />
-      <ProjectsSection />
-      <SocialProofSection />
-      <FaqSection />
-      <FinalCtaSection />
+      <AboutSection />
+      <CommunitySection />
+      <ManifestoSection />
+      <FooterSection />
     </PageShell>
   );
 }

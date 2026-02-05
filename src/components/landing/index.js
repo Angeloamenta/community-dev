@@ -1,9 +1,8 @@
 export { default as PageShell } from "./PageShell";
+export { default as Navbar } from "./Navbar";
 export { default as HeroSection } from "./HeroSection";
-export { default as HowItWorksSection } from "./HowItWorksSection";
-export { default as ValuePropsSection } from "./ValuePropsSection";
-export { default as ProjectsSection } from "./ProjectsSection";
-export { default as SocialProofSection } from "./SocialProofSection";
-export { default as FaqSection } from "./FaqSection";
-export { default as FinalCtaSection } from "./FinalCtaSection";
+export { default as AboutSection } from "./AboutSection";
+export { default as CommunitySection } from "./CommunitySection";
+export { default as ManifestoSection } from "./ManifestoSection";
+export { default as FooterSection } from "./FooterSection";
 
