@@ -5,21 +5,25 @@ import About from "@/components/sections/About";
 import Testimonials from "@/components/sections/Testimonials";
 import Manifest from "@/components/sections/Manifest";
 import LogoCloud from "@/components/sections/LogoCloud";
+import AnimatedBackground from "@/components/ui/AnimatedBackground";
 
 import homeData from "@/content/home.json";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-brand-white text-black font-sans antialiased overflow-hidden selection:bg-brand-lime selection:text-white">
+    <main className="min-h-screen relative overflow-hidden selection:bg-accent selection:text-white">
+      <AnimatedBackground />
       <Navbar />
-      <Hero data={homeData.hero} />
-      <LogoCloud data={homeData.logos} />
-      <About data={homeData.about} />
-      <Manifest data={homeData.manifesto} />
-      <Testimonials data={homeData.community} />
 
-      {/* Passing footer data */}
-      <Footer data={homeData.footer} />
+      <div className="relative z-10">
+        <Hero data={homeData.hero} />
+        <LogoCloud data={homeData.logos} />
+        <About data={homeData.about} />
+        <Manifest data={homeData.manifesto} />
+        <Testimonials data={homeData.community} />
+        <Footer data={homeData.footer} />
+      </div>
     </main>
   );
 }
+

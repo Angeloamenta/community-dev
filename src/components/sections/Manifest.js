@@ -6,7 +6,7 @@ export default function Manifest({ data }) {
     const parts = body.split(/(\{\{\d+\}\})/g);
 
     return (
-        <section className="py-24 bg-brand-white text-black relative z-20">
+        <section className="py-32 bg-transparent text-brand-black relative z-20">
             <div className="max-w-4xl mx-auto px-6 text-center">
                 <h2 className="text-4xl md:text-6xl font-black font-display leading-[1.3] tracking-tight text-gray-900 inline-block">
                     {parts.map((part, index) => {

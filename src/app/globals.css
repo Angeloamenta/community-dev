@@ -1,38 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  /* Core Colors */
-  --color-black: #050505;
-  --color-white: #ffffff;
-  --color-lime: #a46cfd;
-  /* Fresh Lime from reference */
-  --color-lime-dim: #c7a7fc;
-  --color-dark-card: #0f0f11;
-  --color-gray-100: #f4f4f5;
-  --color-gray-500: #71717a;
-}
-
 @theme {
-  --color-brand-black: var(--color-black);
-  --color-brand-white: var(--color-white);
-  --color-brand-lime: var(--color-lime);
-  --color-brand-dark-card: var(--color-dark-card);
-  --color-brand-gray: var(--color-gray-500);
-  --color-brand-light-gray: var(--color-gray-100);
-
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Clash Display", system-ui, sans-serif;
+  --color-background: #FDFBF7; /* Warm Off-White */
+  --color-surface: #FFFFFF;
+  --color-surface-dim: #F2F0EB;
+  --color-text-primary: #111111;
+  --color-text-secondary: #555555;
+  --color-accent: #2563EB; /* Vibrant Blue */
+  --color-accent-light: #60A5FA;
+  --color-brand-black: #0A0A0A;
+  
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-outfit), system-ui, sans-serif;
+  
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-slide-up: slide-up 0.5s ease-out forwards;
 }
 
-/* Utilities */
-body {
-  font-family: var(--font-sans);
-  overflow-x: hidden;
+:root {
+  --color-brand-lime: #D4FF00; /* Keeping a fresh lime for specific highlights if needed, but defaulting to blue for main accent */
 }
 
-.text-outline {
-  -webkit-text-stroke: 1px currentColor;
-  color: transparent;
+@layer base {
+  body {
+    @apply bg-[var(--color-background)] text-[var(--color-text-primary)] font-sans selection:bg-[var(--color-accent)] selection:text-white;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 }
 
-/* Section Specific Scopes if needed, but utility classes are preferred */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-sm;
+  }
+  
+  .glass-nav {
+    @apply bg-white/80 backdrop-blur-md border-b border-gray-100/50;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
