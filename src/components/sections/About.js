@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowRight, Copy, Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function About({ data }) {
     const { badge, title, subtitle, cta, code } = data;
@@ -17,81 +18,113 @@ export default function About({ data }) {
     };
 
     return (
-        <section id="about" className="py-24 bg-black text-white relative overflow-hidden">
+        <section id="about" className="py-32 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] text-white relative overflow-hidden">
             {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-[80%] h-[500px] bg-brand-lime/10 blur-[150px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[60%] h-[600px] bg-accent/10 blur-[150px] rounded-full pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start relative z-10">
+            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-start relative z-10">
 
                 {/* Left Column: Text Content */}
-                <div className="space-y-8 sticky top-32">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-lime/10 border border-brand-lime/20 text-brand-lime text-xs font-bold uppercase tracking-wider">
-                        <span className="w-2 h-2 rounded-full bg-brand-lime animate-pulse" />
+                <div className="space-y-10 sticky top-32">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-wider"
+                    >
+                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                         Features
-                    </div>
+                    </motion.div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold font-display leading-[1.1]">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-5xl md:text-6xl font-bold font-display leading-[1.1]"
+                    >
                         {title}
-                    </h2>
+                    </motion.h2>
 
-                    <p className="text-gray-400 text-lg leading-relaxed">
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-gray-400 text-xl leading-relaxed max-w-lg"
+                    >
                         {subtitle}
-                    </p>
+                    </motion.p>
 
-                    <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4">
-                        <span className="text-brand-lime text-sm font-mono block mb-2">{badge}</span>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm"
+                    >
+                        <span className="text-accent text-sm font-mono block mb-2">{badge}</span>
+                        <div className="text-sm text-gray-400">Optimized for performance and scalability.</div>
+                    </motion.div>
 
-                    <a href={cta.href} className="inline-flex items-center gap-2 text-brand-lime font-medium hover:underline decoration-brand-lime decoration-2 underline-offset-4 transition-all">
+                    <a href={cta.href} className="inline-flex items-center gap-3 text-accent font-semibold text-lg hover:text-white transition-colors group">
                         {cta.label}
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>
 
                 {/* Right Column: Code Tabs */}
-                <div className="relative">
-                    <div className="rounded-2xl border border-gray-800 bg-[#0F0F11] overflow-hidden shadow-2xl">
-                        {/* Tab Header */}
-                        <div className="flex items-center justify-between bg-gray-900/50 border-b border-gray-800 px-4">
-                            <div className="flex">
+                <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="relative"
+                >
+                    <div className="rounded-2xl border border-white/10 bg-[#141414] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.5)]">
+                        {/* Tab Header with MacOS Controls */}
+                        <div className="flex items-center justify-between bg-white/5 border-b border-white/10 px-4 py-3">
+                            <div className="flex gap-2 mr-4">
+                                <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
+                                <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                                <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
+                            </div>
+                            <div className="flex flex-1 overflow-x-auto no-scrollbar">
                                 {code.map((item) => (
                                     <button
                                         key={item.language}
                                         onClick={() => setActiveTab(item.language)}
-                                        className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === item.language
-                                                ? 'border-brand-lime text-white bg-white/5'
-                                                : 'border-transparent text-gray-500 hover:text-gray-300'
+                                        className={`px-4 py-1 text-xs font-medium rounded-t-lg transition-colors mr-1 ${activeTab === item.language
+                                            ? 'text-white bg-white/10'
+                                            : 'text-gray-500 hover:text-gray-300'
                                             }`}
                                     >
                                         {item.language}
                                     </button>
                                 ))}
                             </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-xs text-brand-lime-dim font-mono hidden sm:block">{activeCode.filename}</span>
+                            <div className="flex items-center gap-3 px-2">
                                 <button
                                     onClick={handleCopy}
-                                    className="p-2 hover:bg-white/10 rounded-md transition-colors text-gray-400 hover:text-white"
+                                    className="p-1.5 hover:bg-white/10 rounded-md transition-colors text-gray-400 hover:text-white"
                                     title="Copy code"
                                 >
-                                    {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                                    {copied ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
                                 </button>
                             </div>
                         </div>
 
                         {/* Code Content */}
-                        <div className="overflow-x-auto max-h-[600px] custom-scrollbar bg-[#0F0F11]">
-                            <pre className="p-6 text-sm font-mono leading-relaxed text-gray-300">
-                                <code>
-                                    {activeCode.code}
-                                </code>
+                        <div className="overflow-x-auto max-h-[600px] custom-scrollbar bg-[#0F0F0F]">
+                            <pre className="p-8 text-sm font-mono leading-relaxed text-gray-300">
+                                <code>{activeCode.code}</code>
                             </pre>
                         </div>
                     </div>
 
                     {/* Decorative Glow */}
-                    <div className="absolute -inset-1 bg-brand-lime/20 rounded-2xl blur-2xl -z-10 opacity-30 pointer-events-none" />
-                </div>
+                    <div className="absolute -inset-2 bg-accent/20 rounded-2xl blur-3xl -z-10 opacity-40 pointer-events-none" />
+                </motion.div>
 
             </div>
         </section>

@@ -2,7 +2,7 @@ export default function Testimonials({ data }) {
     const { title, eyebrow, cta, testimonials } = data;
 
     return (
-        <section className="py-24 bg-brand-white text-black relative z-30">
+        <section className="py-32 bg-brand-white text-black relative z-30">
 
             <div className="max-w-7xl mx-auto px-6 mb-16 flex flex-col items-center text-center">
                 <span className="text-brand-lime text-xs font-bold uppercase tracking-widest mb-4 inline-flex items-center gap-2">
@@ -19,7 +19,7 @@ export default function Testimonials({ data }) {
 
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
                 {testimonials.map((testimonial, idx) => (
-                    <div key={idx} className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:shadow-brand-lime/10 transition-all group flex flex-col justify-between h-full">
+                    <div key={idx} className="bg-white rounded-2xl p-6 border border-black/5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 group flex flex-col justify-between h-full hover:-translate-y-1 hover:shadow-lg">
 
                         <div>
                             <div className="flex items-center gap-3 mb-6 opacity-60 grayscale group-hover:grayscale-0 transition-all">
@@ -34,8 +34,8 @@ export default function Testimonials({ data }) {
                         </div>
 
                         <div>
-                            <div className="flex items-center gap-4 mb-6 border-t border-gray-200 pt-6">
-                                <img src={testimonial.avatar} alt={testimonial.author} className="w-10 h-10 rounded-full object-cover bg-gray-200" />
+                            <div className="flex items-center gap-4 mb-6 border-t border-gray-100 pt-6">
+                                <img src={testimonial.avatar} alt={testimonial.author} className="w-12 h-12 rounded-full object-cover bg-gray-200" />
                                 <div>
                                     <cite className="not-italic font-bold block text-sm text-black">{testimonial.author}</cite>
                                     <span className="text-xs text-gray-500 font-medium">{testimonial.role}</span>

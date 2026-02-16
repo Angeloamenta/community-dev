@@ -32,6 +32,28 @@
         "waitlist": "120+",
         "projects": "40+",
         "community": "Selezionata"
+      },
+      "visuals": {
+        "performance": {
+          "label": "Performance",
+          "value": "100/100"
+        },
+        "security": {
+          "label": "Security",
+          "value": "Enterprise"
+        },
+        "reliability": {
+          "label": "Reliability",
+          "value": "99.9%"
+        },
+        "growth": {
+          "label": "Growth",
+          "value": "+42%"
+        },
+        "speed": {
+          "label": "Integration Speed",
+          "value": "LIFTOFF"
+        }
       }
     }
   },
@@ -192,6 +214,16 @@
     ]
   },
   "footer": {
+    "cta": {
+      "title": "Ready to build the next big thing?",
+      "subtitle": "Join our community of elite developers and start shipping real projects.",
+      "email": "hello@community.dev"
+    },
+    "labels": {
+      "explore": "Explore",
+      "social": "Social",
+      "tagline": "Built for makers."
+    },
     "navigation": [
       {
         "name": "Product",

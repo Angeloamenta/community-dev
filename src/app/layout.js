@@ -1,4 +1,4 @@
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google"; // Changed from Outfit
 import "./globals.css";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor"; // Optional: user likes premium feel
@@ -9,9 +9,9 @@ const inter = Inter({
   display: "swap",
 });
 
-const outfit = Outfit({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-space-grotesk", // Changed variable name
   display: "swap",
 });
 
@@ -23,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${outfit.variable} antialiased bg-[#FDFBF7] text-[#111111]`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-[#FDFBF7] text-[#111111]`}>
         <CustomCursor />
         <SmoothScroll>
           {children}
