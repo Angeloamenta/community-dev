@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
-import Mascotte from "@/components/ui/Mascotte";
+import SplineMascot from "@/components/ui/SplineMascot";
 
 export default function Hero({ data }) {
     const { badge, title, subtitle, primaryCta, bullets } = data; // snippet removed from destructing if not needed, or keep for safety
@@ -88,8 +88,8 @@ export default function Hero({ data }) {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
-                    <div className="scale-125">
-                        <Mascotte />
+                    <div className="w-full h-[500px]">
+                        <SplineMascot />
                     </div>
                 </motion.div>
 
