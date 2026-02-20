@@ -32,7 +32,7 @@ export default function Navbar() {
                     <div className="absolute inset-0 bg-black/80 backdrop-blur-xl border border-white/10 shadow-sm rounded-full h-14 top-1 flex items-center justify-between px-8 transition-all duration-300 ease-in-out hover:bg-black/90 hover:shadow-md">
                         {/* Logo */}
                         <div className="text-xl font-bold font-mono uppercase tracking-widest text-white flex items-center gap-3 cursor-pointer">
-                            <Logo className="w-8 h-8 text-[var(--color-brand-lime)]" fill="currentColor" />
+                            <Logo className="w-8 h-8" priority />
                             Johnny<span className="text-gray-400 font-normal">DEV</span>
                         </div>
 

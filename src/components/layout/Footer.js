@@ -12,7 +12,7 @@ export default function Footer({ data }) {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-24">
                     {/* Left Side: Call to Action */}
                     <div className="md:col-span-6 space-y-8">
-                        <Logo className="w-20 h-20 text-[var(--color-brand-lime)] mb-6" />
+                        <Logo className="w-20 h-20 mb-6" />
                         <h2 className="text-4xl md:text-5xl font-bold font-display leading-[1.1] tracking-tight">
                             {cta?.title?.split('build').map((part, i) => (
                                 <span key={i}>
